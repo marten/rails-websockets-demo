@@ -4,6 +4,7 @@ gem 'rails', '3.2.2'
 gem 'thin'
 gem 'websocket-rack'
 gem 'pry'
+gem 'eventmachine', '= 1.0.0.beta.4'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

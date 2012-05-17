@@ -16,3 +16,16 @@ it doesn't work.
     bundle exec rails server thin
 
 And then visit http://localhost:3000/demo
+
+## A note on Thin
+
+If you simply add 'thin' to the Gemfile, the `websocket-rack` gem complains
+about EventMachine being too old, which is explained here:
+https://github.com/imanel/websocket-rack/issues/2
+
+The problem has to do with timeouts, and if you don't do anything about it,
+the websocket connection will be closed by Thin after 30 seconds.
+
+I chose to lock eventmachine down to version 1.0.0.beta.4 in the Gemfile, but
+as mentioned in the issue thread linked above, you could also use `thin-websocket` instead of
+Thin, which is simply a small wrapper.
